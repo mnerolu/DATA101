@@ -1,0 +1,123 @@
+UNIT_CODE,UNIT_NAME,STATE,REGION,SLOSH_Run_Used,storm_cat
+ACAD,Acadia National Park,ME,NE,Penobscot Bay,2
+ANAC,Anacostia Park,DC,NE,Chesapeake Bay V2,3
+ANIA,Aniakchak National Monument,AK,AK,NA,NA
+ANIA,Aniakchak National Preserve,AK,AK,NA,NA
+ASIS,Assateague Island National Seashore,MD,NE,Ocean City,2
+BELA,Bering Land Bridge National Preserve,AK,AK,NA,NA
+BICY,Big Cypress National Preserve,FL,SE,Fort Myers V3,5
+BISC,Biscayne National Park,FL,SE,Biscayne Bay V4,5
+BITH,Big Thicket National Preserve,TX,IM,Sabine Lake V5,4
+BOHA,Boston Harbor Islands National Recreation Area,MA,NE,Providence-Boston,3
+BOST,Boston National Historical Park,MA,NE,Providence-Boston,4
+BUIS,Buck Island Reef National Monument,VI,SE,Virgin Islands V2,3
+CABR,Cabrillo National Monument,CA,PW,Tebaldi,See Tebaldi
+CACL,Castle Clinton National Monument,NY,NE,New York V3,2
+CACO,Cape Cod National Seashore,MA,NE,Providence-Boston,3
+CAHA,Cape Hatteras National Seashore,NC,SE,Pamlico Sound ,4
+CAKR,Cape Krusenstern National Monument,AK,AK,NA,NA
+CALO,Cape Lookout National Seashore,NC,SE,Pamlico Sound ,4
+CANA,Canaveral National Seashore,FL,SE,Cape Canaveral V2,3
+CASA,Castillo de San Marcos National Monument,FL,SE,Jacksonville V3,4
+CHIS,Channel Islands National Park,CA,PW,Tebaldi,See Tebaldi
+CHOH,Chesapeake and Ohio Canal National Historic Park,DC,NC,Chesapeake Bay V2,3
+CHPI,Charles Pinckney National Historic Site,SC,SE,Charleston Harbor V3,5
+CHRI,Christiansted National Historic Site,VI,SE,Virgin Islands V2,5
+COGA,Constitution Gardens,DC,NC,Chesapeake Bay V2,3
+COLO,Colonial National Historical Park,VA,NE,Norfolk V3,1
+CUIS,Cumberland Island National Seashore,GA,SE,Jacksonville V3,5
+DESO,De Soto National Memorial,FL,SE,Tampa Bay V3,2
+DRTO,Dry Tortugas National Park,FL,SE,Florida Bay V2,5
+EBLA,Ebey's Landing National Historical Reserve,WA,PW,Tebaldi,See Tebaldi
+EDAL,Edgar Allan Poe National Historic Site,PA,NE,Delaware Bay V3,1
+EVER,Everglades National Park,FL,SE,Florida Bay V2,6
+FEHA,Federal Hall National Memorial,NY,NE,New York V3,2
+FIIS,Fire Island National Seashore,NY,NE,New York V3,3
+FOCA,Fort Caroline National Memorial,FL,SE,Jacksonville V3,3
+FOFR,Fort Frederica National Monument,GA,SE,Jacksonville V3,2
+FOMA,Fort Matanzas National Monument,FL,SE,Jacksonville V3,2
+FOMC,Fort McHenry National Monument and Historic Shrine,MD,NE,Chesapeake Bay V2,1
+FOMR,Fort Monroe,,,Norfolk V3,1
+FOPO,Fort Point National Historic Site,CA,PW,Tebaldi,See Tebaldi
+FOPU,Fort Pulaski National Monument,GA,SE,Savannah Hilton Head V4,3
+FORA,Fort Raleigh National Historical Site,NC,SE,Pamlico Sound ,3
+FOSU,Fort Sumter National Monument,SC,SE,Charleston Harbor V3,5
+FOVA,Fort Vancouver National Historic Site,WA,PW,Tebaldi,See Tebaldi
+FOWA,Fort Washington Park,MD,NC,Chesapeake Bay V2,3
+GATE,Gateway National Recreation Area,NY,NE,New York V3,2
+GEGR,General Grant National Memorial,NY,NE,New York V3,2
+GEWA,George Washington Birthplace National Monument,VA,NE,Chesapeake Bay V2,1
+GLBA,Glacier Bay National Park,AK,AK,NA,NA
+GLBA,Glacier Bay National Preserve,AK,AK,NA,NA
+GOGA,Golden Gate National Recreation Area,CA,PW,Tebaldi,See Tebaldi
+GOIS,Governors Island National Monument,NY,NE,New York V3,2
+GREG,"Great Egg Harbor (not on lists, don't do this one))",NJ,,"Andy modeled this park, I don't have it in my list",
+GUIS,Gulf Islands National Seashore,FL,SE,Mobile Bay V3,5
+GWMP,George Washington Memorial Parkway,VA,NC,Chesapeake Bay V2,3
+HAFE,Harpers Ferry National Historical Park,WV,NC,Chesapeake Bay V2,1
+HAGR,Hamilton Grange National Memorial,NY,NE,New York V3,2
+HALE,Haleakala National Park,HI,PW,Oahu Hawaii V1,1
+HATU,Harriet Tubman Underground Railroad National Monument,MD,NE,Chesapeake Bay V2,1
+HAVO,Hawai'i Volcanoes National Park,HI,PW,Oahu Hawaii V1,1
+INDE,Independence National Historical Park,PA,NE,Delaware Bay V3,1
+JAZZ,,,,New Orleans v9,3
+JELA,Jean Lafitte National Historical Park and Preserve,LA,SE,New Orleans v9,3
+KAHO,Kaloko-Honokohau National Historical Park,HI,PW,Oahu Hawaii V1,1
+KALA,Kalaupapa National Historical Park,HI,PW,Oahu Hawaii V1,1
+KATM,Katmai National Park,AK,AK,NA,NA
+KATM,Katmai National Preserve,AK,AK,NA,NA
+KEFJ,Kenai Fjords National Park,AK,AK,NA,NA
+KLGO,Klondike Gold Rush National Historical Park,AK,AK,Tebaldi,See Tebaldi
+KOWA,Korean War Veterans Memorial,DC,NC,Chesapeake Bay V2,3
+LACL,Lake Clark National Park,AK,AK,NA,NA
+LACL,Lake Clark National Preserve,AK,AK,NA,NA
+LEWI,Lewis and Clark National Historical Park,WA,PW,Tebaldi,See Tebaldi
+LINC,Lincoln Memorial,DC,NC,Chesapeake Bay V2,3
+LYBA,Lyndon Baines Johnson Grove National Memorial,DC,NC,Chesapeake Bay V2,3
+MALL,National Mall,DC,NC,Chesapeake Bay V2,3
+MLKM,Martin Luther King Jr. National Historic Site,DC,NC,Chesapeake Bay V2,3
+MOCR,Moores Creek National Battlefield,NC,SE,Pamlico Sound ,2
+NAMA,National Mall & Memorial Parks,,,Chesapeake Bay V2,3
+NEBE,New Bedford Whaling National Historical Park,MA,NE,Providence-Boston,1
+NPSA,National Park of American Samoa National Park,AS,PW,American Samoa,NA
+OLYM,Olympic National Park,WA,PW,Tebaldi,See Tebaldi
+PAAL,Palo Alto Battlefield National Historical Park,TX,IM,Corpus Christi Bay V3,1
+PAIS,Padre Island National Seashore,TX,IM,Corpus Christi Bay V3,5
+PETE,Petersburg National Battlefield,VA,NE,Norfolk V3,3
+PISC,Piscataway Park,MD,NC,Chesapeake Bay V2,3
+POCH,Port Chicago Naval Magazine National Memorial,CA,PW,Tebaldi,See Tebaldi
+POHE(POTO),Potomac Heritage National Scenic Trail,"DC,MD,VA,PA",,Chesapeake Bay V2,3
+PORE,Point Reyes National Seashore,CA,PW,Tebaldi,See Tebaldi
+PUHE,Pu'ukohola Heiau National Historic Site,HI,PW,Oahu Hawaii V1,1
+PUHO,Pu'uhonua o Honaunau National Historical Park,HI,PW,Oahu Hawaii V1,1
+REDW,Redwood National Park,CA,PW,"No Tebaldi gauge nearby, but close",See Tebaldi
+ROCR,Rock Creek Park,DC,NC,Chesapeake Bay V2,3
+RORI,Rosie the Riveter/World War II Home Front National Historical Park,CA,PW,Tebaldi,See Tebaldi
+ROWI,Roger Williams National Memorial,RI,NE,Providence-Boston,4
+SACR,Saint Croix Island International Historic Site,ME,NE,Penobscot Bay,3
+SAFR,San Francisco Maritime National Historical Park,CA,PW,Tebaldi,See Tebaldi
+SAHI,Sagamore Hill National Historic Site,NY,NE,New York V3,3
+SAIR,Saugus Iron Works National Historic Site,MA,NE,Providence-Boston,2
+SAJH,San Juan Island National Historical Park,WA,PW,Tebaldi,See Tebaldi
+SAJU,San Juan National Historical Site,PR,SE,Puerto Rico V2,4
+SAMA,Salem Maritime National Historic Site,MW,NE,Providence-Boston,2
+SAMO,Santa Monica Mountains National Recreation Area,CA,PW,Tebaldi,See Tebaldi
+SARI,Salt River Bay National Historical Park,VI,SE,Virgin Islands V2,5
+SITK,Sitka National Historical Park,AK,AK,NA,NA
+STLI,Statue Of Liberty National Monument,NY,NE,New York V3,2
+THIS,Theodore Roosevelt Island National Memorial,DC,NC,Chesapeake Bay V2,3
+THJE(JEFM),Thomas Jefferson Memorial,DC,NC,Chesapeake Bay V2,3
+THKO,Thaddeus Kosciuszko National Memorial,PA,NE,Delaware Bay V3,1
+THRB,Theodore Roosevelt Birthplace National Historic Site,NY,NE,New York V3,2
+TIMU,Timucaun Ecological and Historical Preserve,FL,SE,Jacksonville V3,3
+VALR,World War II Valor in the Pacific National Monument,HI,PW,Oahu Hawaii V1,1
+VICR,Virgin Islands Coral Reef National Monument,VI,SE,Virgin Islands V2,4
+VIIS,Virgin Islands National Park,VI,SE,Virgin Islands V2,4
+VIVE,Vietnam Veterans Memorial,DC,NC,Chesapeake Bay V2,3
+WAMO,Washington Monument,DC,NC,Chesapeake Bay V2,3
+WAPA,War in the Pacific National Historical Park,GU,PW,NA,NA
+WHHO,White House,DC,NC,Chesapeake Bay V2,3
+WRBR,Wright Brothers National Memorial,NC,SE,Pamlico Sound ,3
+WRST,Wrangell-St. Elias National Park,AK,AK,NA,NA
+WRST,Wrangell-St. Elias National Preserve,AK,AK,NA,NA
+WWII,World War II Memorial,DC,NC,Chesapeake Bay V2,3

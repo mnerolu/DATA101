@@ -1,0 +1,155 @@
+---
+title: 'Project 1: Data Cleaning'
+author: "Meenakshi Nerolu"
+date: "June 16, 2019"
+output:
+  html_document:
+    #toc: yes
+    toc_depth: '2'
+  pdf_document:
+    keep_tex: yes
+    toc: yes
+    toc_depth: 2
+geometry: right=2.5in
+---
+Data cleaning is the process of preparing data for analysis by removing or modifying data that is incorrect, incomplete, irrelevant, duplicated, or improperly formatted.
+Data cleaning is not simply about erasing information to make space for new data, but rather finding a way to maximize a data set’s accuracy without necessarily deleting information.
+
+\par Data cleaning helps ensure that information always matches the correct fields while making it easier for business intelligence tools to interact with data sets to find information more efficiently.
+
+\par One of the data cleaning examples is Estimated Extent of Coastal Flooding due to Storm Surge Data for 79 National Parks.
+
+\par This data release consists of the estimated extent of coastal flooding due to storm surge. Storm surge values were derived from 2 sources; National Weather Service (NWS) SLOSH (Sea, Lake, and Overland Surges from Hurricanes) MOM (Maximum of the Mean Envelope of Overwash Water (MEOW)) and in areas where SLOSH output is not available then historic patterns of extreme high water events at tide gauges was used (Tebaldi et al., 2012).
+
+\par The Saffir-Simpson Hurricane Wind Scale is a 1 to 5 rating based on a hurricane's sustained wind speed. This scale estimates potential property damage. Hurricanes reaching Category 3 and higher are considered major hurricanes because of their potential for significant loss of life and damage. Category 1 and 2 storms are still dangerous, however, and require preventative measures. 
+
+\par First we are going to read the set of data in R Markdown using ```read.csv()``` function. 
+
+#### Reading the csv file that contains the data information and store it in the variable "hurricane" :
+
+```{r}
+hurricane <- read.csv(file = "hurricane_surge.csv")
+dim(hurricane)
+```
+### ```dplyr``` - efficient data manipulation in ``R``
+\par ``dplyr`` is a data manipulation package for the ``R`` language. It provides a flexible grammar of data manipulation. It is focused on tools for working with data frames (hence the *d* in the name).
+
+When working with data you must: 
+
+* Figure out what you want to do.
+
+* Describe those tasks in the form of a computer program.
+  
+* Execute the program.
+
+**The ``dplyr`` package makes these steps fast and easy:**
+
+* By constraining your options, it helps you think about your data manipulation  
+  challenges.
+  
+* It provides simple “verbs”, functions that correspond to the most common    data   manipulation tasks, to help you translate your thoughts into code.
+  
+* It uses efficient backends, so you spend less time waiting for the computer.
+   
+In this project, we study dplyr’s basic set of tools, and shows you how to apply them to data frames. In order to use `dplyr` package, we need to install and load ``dplyr`` package into ``R``.
+
+```{r}
+# install.packages("dplyr")
+library(dplyr)
+```
+### Dimension and Structure of the dataset
+
+The function **```dim()```** gives total number of rows and columns of the given data frame and **```str()```** gives structure of the given data frame.
+
+```{r}
+dim(hurricane)
+str(hurricane)
+```
+### Get first n rows and last n rows with head and tail function in R
+
+**Head Function in R:** returns the first n rows of a data frame in R.
+
+```{r}
+head(hurricane)
+```
+**Tail Function in R:** returns the last n rows of a matrix or data frame in R.
+```{r}
+tail(hurricane, n=2)
+```
+### Handling Missing Data
+
+\par It might happen that your dataset is not complete, and when information is not available we call it missing values. In ```R```, missing values are represented by the symbol **NA** (not available). Impossible values (e.g., dividing by zero) are represented by the symbol **NaN** (not a number). 
+
+#### Testing for Missing Values
+
+To identify missings in your dataset the function is **is.na()**. 
+
+```{r}
+##is.na(hurricane)
+```
+
+#### Excluding Missing Values
+
+The function ```complete.cases()``` returns a logical vector indicating which cases are complete.```
+
+```{r}
+NA_free <- complete.cases(hurricane)
+# list rows of data that have missing values 
+#head(hurricane[NA_free,])
+```
+
+Now create a new data set without missing data.
+```{r}
+new_hurricane_dat <- na.omit(hurricane)
+```
+Now we look at the dimension of the new data frame. When looking at the tail, we can see that the rows with NA have been removed.
+```{r}
+dim(new_hurricane_dat)
+tail(new_hurricane_dat)
+```
+## ```Subset()``` Function
+
+The **```subset()```** function is the easiest way to select variables and observations. The following code select flooding detail only in DC:
+```{r}
+subset1 <- subset(new_hurricane_dat, REGION = "DC")
+dim(subset1)
+```
+
+##  ```Select()``` Function
+
+```Select``` function in ````R``` is used to select variables (columns) in ```R``` using Dplyr package.  Dplyr package in ```R``` is provided with ```select()``` function which select the columns based on conditions.
+
+```{r}
+# Select columns of the dataframe
+subset2 <- select(new_hurricane_dat, UNIT_CODE, UNIT_NAME, STATE, REGION)
+head(subset2)
+dim(subset2)
+```
+We can use ```select``` function within ```subset function. In the next example, we select flooding detail in Maryland state and we keep the variables UNIT_CODE through SLOSH_Run_Used.
+```{r}
+subset3 <- subset(new_hurricane_dat, REGION = "MD", select = UNIT_CODE:SLOSH_Run_Used)
+dim(subset3)
+```
+## ```filter()``` Function
+
+``filter()``` function return rows with matching conditions. The following code gives all the details for California states.
+
+```{r}
+hurricane.f <- filter(new_hurricane_dat, STATE == "CA")
+dim(hurricane.f)
+```
+## Reorder Data Frame
+We can  reorder (i.e., sort) rows, in our data table, by the value of one or more columns (i.e., variables).
+
+\par We can: 
+
+* sort a data frame rows in ascending order (from low to high) using the R function **```arrange()```**
+
+* sort rows in descending order (from high to low) using **```arrange()```** in combination with the function **```desc()```**
+
+```{r}
+hurricane_organised <- arrange(new_hurricane_dat, desc(REGION))
+dim(hurricane_organised)
+```
+
+Thus ```dplyr``` package is useful to filter the data set as our requirement.
