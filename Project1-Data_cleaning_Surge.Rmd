@@ -111,7 +111,7 @@ tail(new_hurricane_dat)
 
 The **```subset()```** function is the easiest way to select variables and observations. The following code select flooding detail only in DC:
 ```{r}
-subset1 <- subset(new_hurricane_dat, REGION = "DC")
+subset1 <- subset(new_hurricane_dat, REGION == "DC")
 dim(subset1)
 ```
 
@@ -127,7 +127,7 @@ dim(subset2)
 ```
 We can use ```select``` function within ```subset function. In the next example, we select flooding detail in Maryland state and we keep the variables UNIT_CODE through SLOSH_Run_Used.
 ```{r}
-subset3 <- subset(new_hurricane_dat, REGION = "MD", select = UNIT_CODE:SLOSH_Run_Used)
+subset3 <- subset(new_hurricane_dat, STATE == "MD", select = UNIT_CODE:SLOSH_Run_Used)
 dim(subset3)
 ```
 ## ```filter()``` Function

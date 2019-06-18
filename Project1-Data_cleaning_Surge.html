@@ -509,9 +509,9 @@ library(dplyr)</code></pre>
 <div id="subset-function" class="section level2">
 <h2><code>Subset()</code> Function</h2>
 <p>The <strong><code>subset()</code></strong> function is the easiest way to select variables and observations. The following code select flooding detail only in DC:</p>
-<pre class="r"><code>subset1 &lt;- subset(new_hurricane_dat, REGION = &quot;DC&quot;)
+<pre class="r"><code>subset1 &lt;- subset(new_hurricane_dat, REGION == &quot;DC&quot;)
 dim(subset1)</code></pre>
-<pre><code>## [1] 106   6</code></pre>
+<pre><code>## [1] 0 6</code></pre>
 </div>
 <div id="select-function" class="section level2">
 <h2><code>Select()</code> Function</h2>
@@ -529,9 +529,9 @@ head(subset2)</code></pre>
 <pre class="r"><code>dim(subset2)</code></pre>
 <pre><code>## [1] 106   4</code></pre>
 <p>We can use <code>select</code> function within ```subset function. In the next example, we select flooding detail in Maryland state and we keep the variables UNIT_CODE through SLOSH_Run_Used.</p>
-<pre class="r"><code>subset3 &lt;- subset(new_hurricane_dat, REGION = &quot;MD&quot;, select = UNIT_CODE:SLOSH_Run_Used)
+<pre class="r"><code>subset3 &lt;- subset(new_hurricane_dat, STATE == &quot;MD&quot;, select = UNIT_CODE:SLOSH_Run_Used)
 dim(subset3)</code></pre>
-<pre><code>## [1] 106   5</code></pre>
+<pre><code>## [1] 5 5</code></pre>
 </div>
 <div id="filter-function" class="section level2">
 <h2><code>filter()</code> Function</h2>
