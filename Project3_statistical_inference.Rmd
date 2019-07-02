@@ -1,0 +1,223 @@
+---
+title: 'Project 3: Statistical Inference'
+author: "Meenakshi Nerolu"
+date: "June 30, 2019"
+output:
+  html_document:
+    toc: yes
+    toc_depth: '2'
+  pdf_document:
+    keep_tex: yes
+    toc: yes
+    toc_depth: 2
+geometry: right=2.5in
+---
+# Statistical Inference
+
+Statistical inferences are main contents of mathematical statistics. Parametric estimation and hypothesis testing are two classical methods widely used in statistical inferences.
+
+## The *t*-test
+
+An illustration of an hypothesis test that is frequently used in practice is provided by the *t*-test, one of several “difference-of-means” tests. The *t*-test (or more particularly Student’s *t*-test (after the pseudonym of its author, W.S. Gosset) provides a mechanism for the simple task of testing whether there is a significant difference between two groups of observations, as reflected by differences in the means of the two groups. A *t*-test can tell whether two groups have the same mean. In the *t*-test, two sample mean values, or a sample mean and a theoretical mean value, are compared as follows:
+
+* the null hypthesis is that the two mean values are equal, while the alternative hypothesis is that the means are not equal (or that one is greater than or less than the other)
+* the test statistic is the t-statistic
+* the significance level or p-value is determined using the t-distribution
+
+## The *t*-test for assessing differences in group means
+
+There are three ways the *t*-test is implemented in practice, depending on the nature of the question being asked and hence on the nature of the null hypotheis:
+
+* **one-sample *t*-test** (for testing the hypothesis that a sample mean is equal to a “known” or “theoretical” value).
+* **two-sample *t*-test** (for testing the hypothesis that the means of two groups of observations are identical).
+* **paired sample *t*-test** (when you have two measurements from the same group of individuals).
+
+To perform a *t*-test, you need to assume normality of the data.
+The basic syntax for ```t.test()``` is:
+
+```
+t.test(x, y = NULL,
+mu = 0, var.equal = FALSE)
+```
+
+arguments:
+
+* x : A vector to compute the one-sample t-test
+* y: A second vector to compute the two sample t-test
+* mu: Mean of the population
+* var.equal: Specify if the variance of the two vectors are    
+  equal. By default, set to `FALSE`
+  
+We will try to analyze this statistical inference through the world's country data set. This data set gives information on  population, region, area size, infant mortality and more.
+
+# Load Necessary Packages
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+``` 
+
+## Load and Visualize the data
+
+```{r}
+countries <- read.csv(file = "countries_world.csv",stringsAsFactors = FALSE)
+dim(countries)
+str(countries)
+```
+
+### Omit the rows that contain NA's
+
+```{r}
+new_country_dat <- na.omit(countries)
+#Dimension of the new data set
+dim(new_country_dat)
+new_country_dat_head <- head(new_country_dat,10)
+```
+
+## Summary of the data
+
+```{r}
+#Summary of Birthrate
+summary(new_country_dat_head$Birthrate)
+```
+
+# EDA Principles
+
+Graphing data is a powerful approach to detecting these problems. We refer to this as *exploratory data analysis (EDA)*. In exploratory data analysis, we are looking for trends and patterns in data.
+
+### EDA Principles
+
+* To guide tool developers in tool/system design
+* To guide data analysts in choosing and using the tools
+
+## Exploratory Graphics
+
+To communicate information clearly and efficiently, data visualization uses statistical graphics, plots, information graphics and other tools. For data visualization we can use the following graphical packages :
+
+* Boxplot
+* Barplot
+* Histogram
+* Scatterplot
+
+We have discussed EDA in detail in project 2. Now let us learn more about Statistical Inference.
+
+# Inferential Statistics
+
+## *t*-test
+
+A ***t*-test** is a type of inferential statistic used to determine if there is a significant difference between the means of two groups, which may be related in certain features. The ```t.test( )``` function produces a variety of t-tests.
+```
+# independent 2-group t-test
+t.test(y~x) # where y is numeric and x is a binary factor
+```
+
+```
+# independent 2-group t-test
+t.test(y1,y2) # where y1 and y2 are numeric
+```
+
+```
+# paired t-test
+t.test(y1,y2,paired=TRUE) # where y1 & y2 are numeric
+```
+
+```
+# one sample t-test
+t.test(y,mu=3) # Ho: mu=3
+```
+You can use the ```var.equal = TRUE``` option to specify equal variances and a pooled variance estimate. You can use the ```alternative="less"``` or ```alternative="greater"``` option to specify a one tailed test.
+
+The function ```t.test``` is available in R for performing t-tests. Let's test it out on a simple example. Let ```x``` and ```y``` be the columan containg the birthrate and deathrate details respectively. Now, ```t.test``` gives us:  
+
+```{r}
+x = new_country_dat$Birthrate
+y = new_country_dat$Deathrate
+t.test(x,y)
+```
+
+Here we can observe that mean of Birthrate is ```23.06749``` and mean of Deathrate is ```9.46514```.
+
+Before we can use this function in a simulation, we need to find out how to extract the ```t-statistic``` from the output of the ```t.test``` function. For ```t.test``` it's easy to figure out what we want:
+
+```{r}
+ttest=t.test(x,y)
+names(ttest)
+```
+
+The value we want is named *"statistic"*. To extract it, we can use the dollar sign notation, or double square brackets:
+
+```{r}
+ ttest$statistic
+```
+
+In order to do different types of *t*-test first install ```lsr``` package. They
+use the functions for *t*-tests that come preloaded in ```R```.
+
+```{r}
+library(lsr)
+```
+
+## One-sample *t*-test
+
+
+A one-sample *t*-test is used to compare the mean value of a sample with a constant value denoted μ0. The test has the null hypothesis that the population mean is equal to μ0 and the alternative hypothesis that it is not equal to μ0.
+
+You can perform a one-sample *t*-test with the t.test function. To compare a sample mean with a constant value ```mu0```, use the command:
+
+```
+t.test(dataset$sample1, mu=mu0)
+```
+The ```mu``` argument gives the value with which you want to compare the sample mean. It is optional and has a default value of zero. For example, consider infant death rate per 1000 births from the data set and one sample *t*-test gives the following details: 
+
+```{r}
+oneSampleTTest(new_country_dat_head$Infant_mortality_per_1000_births, mu=0)
+t.test(new_country_dat_head$Infant_mortality_per_1000_births, mu=0)
+```
+
+In the output of one sample t-test there are descriptive statistics, a summary of the hypothesis, the t-test results, a confidence interval and an estimate of effect size. We can note from the output that the true mean is between the interval ```-2.821146``` and ```64.777146``` with a probability of ```95%```. 
+
+## Two-sample *t*-test
+
+It is used for comparing whether the means of two samples are statistically different from each other.  A common application is to determine whether the means are equal.
+```{r}
+t.test(new_country_dat_head$Birthrate,new_country_dat_head$Deathrate, var.equal = FALSE)
+#var(new_country_dat_head$Birthrate)
+#var(new_country_dat_head$Deathrate)
+#plot(new_country_dat$Birthrate, new_country_dat$Deathrate, pch=16)
+```
+
+In the above output, we can observe that ```p=0.03112``` which is less than the threshold value, ```0.05```. So we can conclude that means of the two groups are significantly different.
+
+## Paired *t*-test
+Use paired *t*-tests when obervations from one group are paired with the other. This can be done easily in ```R```, by simply adding ```paired = TRUE``` when calling ```t.test```.
+
+```{r}
+t.test(new_country_dat_head$Birthrate,new_country_dat_head$Deathrate, var.equal = FALSE, paired =TRUE)
+```
+
+#### Simple 1-to-1 plot of values
+
+```{r out.width = '50%',fig.align="center"}
+plot(new_country_dat_head$Birthrate,new_country_dat_head$Deathrate, pch=16, xlab="Birthrate", ylab="Deathrate")
+abline(0,1, col="blue", lwd=2)
+```
+Plot of paired samples from a paired *t*-test.  Circles below and to the right of the blue one-to-one line indicate observations with a higher value for Birthrate than for Deathrate.
+
+```{r out.width = '50%',fig.align="center" }
+Difference = new_country_dat_head$Birthrate - new_country_dat_head$Deathrate
+
+hist(Difference,    
+     col="magenta",  
+     main="Histogram of differences", 
+     xlab="Difference")
+```
+
+## Observations from *t*-test
+
+In *t*-test, the null hypothesis is that the mean of the two samples is equal. This means that the alternative hypothesis for the test is that the difference of the mean is not equal to zero. In a hypothesis test, we want to reject or accept the null hypothesis with some confidence interval. Since we test the difference between the two means, the confidence interval in this case specifies the range of values within which the difference may lie.
+
+The *t*-test will also produce the *p*-value, which is the probability of wrongly rejecting the null hypothesis. The *p*-value is always compared with the significance level of the test. For instances, at 95% level of confidence, the significant level is 5% and the *p*-value is reported as ```p<0.05```. Small p-values suggest that the null hypothesis is unlikely to be true. The smaller it is, the more confident we can reject the null hypothesis.
+
+# Summary
+The *t*-test belongs to the family of inferential statistics. It is commonly employed to find out if there is a statistical difference between the means of two groups. We have learned about the concept of *t*-tests in R. We have discussed how to perform different *t*-tests in ```R``` along with its different uses in ```R```. 
